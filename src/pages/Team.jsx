@@ -12,7 +12,7 @@ export const TeamPage = () => {
       name: "Valentine Nguemne",
       role: "Présentatrice & Créatrice",
       image: "/api/placeholder/400/400",
-      website: "https://valentineng.dev",
+      website: "https://valentinenguemnne.com",
       linkedin: "#"
     },
     {
@@ -36,17 +36,17 @@ export const TeamPage = () => {
               <p className={styles.text + " mb-4"}>{member.role}</p>
               <div className="flex space-x-4">
                 {member.website && (
-                  <a href={member.website} target="_blank" rel="noopener noreferrer" className="text-violet-600 hover:text-violet-700">
+                  <a href={member.website} target="_blank" rel="noopener noreferrer" className={styles.link}>
                     Site web
                   </a>
                 )}
                 {member.linkedin && (
-                  <a href={member.linkedin} className="text-violet-600 hover:text-violet-700">
+                  <a href={member.linkedin} className={styles.link}>
                     <Linkedin size={20} />
                   </a>
                 )}
                 {member.twitter && (
-                  <a href={member.twitter} className="text-violet-600 hover:text-violet-700">
+                  <a href={member.twitter} className={styles.link}>
                     <XIcon />
                   </a>
                 )}

@@ -31,7 +31,7 @@ export const HomePage = () => {
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">Techies Connect' Podcast</h1>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Explorez l'écosystème tech camerounais à travers nos podcasts bi-mensuels
+               3 clicks d'avance sur la tech d'ici et d'ailleurs
             </p>
             <div className="flex justify-center space-x-4">
               <button className={`${styles.button} px-6 py-3 rounded-full`}>
@@ -66,7 +66,7 @@ export const HomePage = () => {
                   <p className={styles.text}>{episode.description}</p>
                   <button
                     onClick={() => setIsPlaying(!isPlaying)}
-                    className="mt-4 flex items-center space-x-2 text-violet-600 hover:text-violet-700"
+                    className={styles.link}
                   >
                     {isPlaying ? <Pause size={24} /> : <Play size={24} />}
                     <span className="font-medium">{isPlaying ? 'Pause' : 'Écouter'}</span>

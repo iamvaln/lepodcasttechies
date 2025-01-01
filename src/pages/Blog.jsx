@@ -20,7 +20,7 @@ export const BlogPage = () => {
           </p>
           <button 
             onClick={() => setCurrentArticle('welcome')}
-            className="text-violet-600 hover:text-violet-700 font-medium"
+            className={styles.actionButton}
           >
             Lire la suite →
           </button>

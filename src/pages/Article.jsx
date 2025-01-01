@@ -16,7 +16,7 @@ export const ArticlePage = ({ onBack }) => {
     <div className="max-w-3xl mx-auto px-4 py-12">
       <button 
         onClick={onBack}
-        className="mb-8 flex items-center text-violet-600 hover:text-violet-700"
+        className={styles.backButton}
       >
         ← Retour aux articles
       </button>

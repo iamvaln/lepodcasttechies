@@ -18,7 +18,7 @@ export const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4">Techies Connect' Podcast</h3>
-            <p className="text-gray-400">L'innovation tech camerounaise à portée d'écoute</p>
+            <p className="text-gray-400">3 clicks d'avance sur la tech d'ici et d'ailleurs</p>
           </div>
           <div>
             <h3 className="text-xl font-bold mb-4">Écoutez-nous sur</h3>
