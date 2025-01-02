@@ -13,7 +13,19 @@ import { Newsletter } from './components/Newsletter';
 import { ContributePage } from './pages/Contribute';
 import { EpisodesPage } from './pages/Episodes';
 import { EpisodePlayer } from './pages/EpisodePlayer';
+import { HashRouter as Router } from 'react-router-dom';
+import { ErrorBoundary } from 'react-error-boundary';
 
+function ErrorFallback() {
+  return (
+    <div className="text-center p-4">
+      <h2>Something went wrong.</h2>
+      <button onClick={() => window.location.reload()} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+        Retry
+      </button>
+    </div>
+  );
+}
 
 const App = () => {
   const [currentPage, setCurrentPage] = React.useState('home');
@@ -59,25 +71,29 @@ const App = () => {
   };
 
   return (
-    <LanguageProvider>
-      <ThemeProvider>
-        <div>
-          <Header 
-            currentPage={currentPage} 
-            setCurrentPage={(page) => {
-              setCurrentPage(page);
-              setCurrentArticle(null);
-            }} 
-          />
-          {renderPage()}
-          <Newsletter />
-            <Footer 
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage} 
-        />
-        </div>
-      </ThemeProvider>
-    </LanguageProvider>
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <Router>
+        <LanguageProvider>
+          <ThemeProvider>
+            <div>
+              <Header 
+                currentPage={currentPage} 
+                setCurrentPage={(page) => {
+                  setCurrentPage(page);
+                  setCurrentArticle(null);
+                }} 
+              />
+              {renderPage()}
+              <Newsletter />
+                <Footer 
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage} 
+            />
+            </div>
+          </ThemeProvider>
+        </LanguageProvider>
+      </Router>
+    </ErrorBoundary>
   );
 };
 
