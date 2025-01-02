@@ -5,9 +5,31 @@ import { useTheme } from './ThemeProvider';
 import { useTranslation } from '../context/LanguageContext';
 import { XIcon } from './Icons';
 
-export const Footer = ({ setCurrentPage }) => {
+const FooterLink = ({ page, currentPage, onClick, children }) => {
+  const isActive = currentPage === page;
+  return (
+    <button 
+      onClick={() => onClick(page)} 
+      className={`${isActive ? 'text-white font-medium' : 'text-gray-400'} hover:text-white relative group`}
+    >
+      {children}
+      {isActive && (
+        <span className="absolute -left-4 top-1/2 -translate-y-1/2 w-2 h-2 bg-white rounded-full" />
+      )}
+    </button>
+  );
+};
+
+export const Footer = ({ setCurrentPage, currentPage }) => {
   const { isDark } = useTheme();
   const { t } = useTranslation();
+
+  const navItems = [
+    { key: 'about', label: t('nav.about') },
+    { key: 'blog', label: t('nav.blog') },
+    { key: 'team', label: t('nav.team') },
+    { key: 'contribute', label: t('nav.contribute') }
+  ];
   
   return (
     <footer className={`${isDark ? 'bg-gray-800' : 'bg-gray-900'} text-white py-8`}>
@@ -22,35 +44,18 @@ export const Footer = ({ setCurrentPage }) => {
           {/* Section Liens Rapides */}
           <div>
             <h3 className="text-xl font-bold mb-4">{t('footer.quickLinks')}</h3>
-            <ul className="space-y-2">
-              <li>
-                <button 
-                  onClick={() => setCurrentPage('about')} 
-                  className="text-gray-400 hover:text-white">
-                  {t('nav.about')}
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => setCurrentPage('blog')} 
-                  className="text-gray-400 hover:text-white">
-                  {t('nav.blog')}
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => setCurrentPage('team')} 
-                  className="text-gray-400 hover:text-white">
-                  {t('nav.team')}
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => setCurrentPage('contribute')} 
-                  className="text-gray-400 hover:text-white">
-                  {t('nav.contribute')}
-                </button>
-              </li>
+            <ul className="space-y-2 pl-4">
+              {navItems.map(item => (
+                <li key={item.key}>
+                  <FooterLink 
+                    page={item.key}
+                    currentPage={currentPage}
+                    onClick={setCurrentPage}
+                  >
+                    {item.label}
+                  </FooterLink>
+                </li>
+              ))}
             </ul>
           </div>
 

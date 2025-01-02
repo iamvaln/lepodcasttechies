@@ -21,8 +21,9 @@ const App = () => {
     if (currentPage === 'blog' && currentArticle) {
       return (
         <ArticlePage 
-          articleId={currentArticle} 
-          onBack={() => setCurrentArticle(null)} 
+        articleId={currentArticle} 
+        onBack={() => setCurrentArticle(null)}
+        setCurrentPage={setCurrentPage}
         />
       );
     }
@@ -54,7 +55,10 @@ const App = () => {
           />
           {renderPage()}
           <Newsletter />
-          <Footer setCurrentPage={setCurrentPage} />
+            <Footer 
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage} 
+        />
         </div>
       </ThemeProvider>
     </LanguageProvider>

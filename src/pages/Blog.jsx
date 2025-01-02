@@ -40,3 +40,4 @@ export const BlogPage = ({ onSelectArticle }) => {
     </div>
   );
 };
+
