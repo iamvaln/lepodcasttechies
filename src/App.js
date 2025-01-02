@@ -14,13 +14,18 @@ const App = () => {
   const [currentArticle, setCurrentArticle] = React.useState(null);
 
   const renderPage = () => {
-    if (currentArticle) {
-      return <ArticlePage onBack={() => setCurrentArticle(null)} />;
+    if (currentPage === 'blog' && currentArticle) {
+      return (
+        <ArticlePage 
+          articleId={currentArticle} 
+          onBack={() => setCurrentArticle(null)} 
+        />
+      );
     }
 
     switch(currentPage) {
       case 'blog':
-        return <BlogPage onArticleSelect={setCurrentArticle} />;
+        return <BlogPage onSelectArticle={setCurrentArticle} />;
       case 'about':
         return <AboutPage />;
       case 'team':
@@ -33,7 +38,13 @@ const App = () => {
   return (
     <ThemeProvider>
       <div>
-        <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <Header 
+          currentPage={currentPage} 
+          setCurrentPage={(page) => {
+            setCurrentPage(page);
+            setCurrentArticle(null); // Reset article when changing page
+          }} 
+        />
         {renderPage()}
         <Footer />
       </div>
@@ -42,3 +53,4 @@ const App = () => {
 };
 
 export default App;
+

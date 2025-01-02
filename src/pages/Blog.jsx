@@ -1,35 +1,37 @@
 // src/pages/Blog.jsx
 import React from 'react';
-import { useTheme } from '../components/ThemeProvider';
 import { BlogPlaceholder } from '../components/Placeholders';
+import { useTheme } from '../components/ThemeProvider';
+import { articles } from '../data/blogArticles';
 
-export const BlogPage = () => {
+export const BlogPage = ({ onSelectArticle }) => {
   const { styles } = useTheme();
-  const [currentArticle, setCurrentArticle] = React.useState(null);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-12">Blog</h1>
-      <article className={styles.card}>
-      <div className="w-full h-64">
-        <BlogPlaceholder />
+      <div className="space-y-8">
+        {articles.map(article => (
+          <article key={article.id} className={styles.card}>
+            <div className="w-full h-64">
+              <BlogPlaceholder />
+            </div>
+            <div className="p-8">
+              <h2 className="text-2xl font-bold mb-4">{article.title}</h2>
+              <div className={styles.text + " mb-4"}>{article.date}</div>
+              <p className={styles.text + " mb-4"}>
+                {article.excerpt}
+              </p>
+              <button 
+                onClick={() => onSelectArticle(article.id)}
+                className={styles.actionButton}
+              >
+                Lire la suite →
+              </button>
+            </div>
+          </article>
+        ))}
       </div>
-        {/* <img src="/api/placeholder/800/400" alt="Blog cover" className="w-full h-64 object-cover" /> */}
-        <div className="p-8">
-          <h2 className="text-2xl font-bold mb-4">Bienvenue sur Techies Connect' Podcast</h2>
-          <div className={styles.text + " mb-4"}>31 Décembre 2024</div>
-          <p className={styles.text + " mb-4"}>
-            Découvrez notre nouveau podcast dédié à l'écosystème tech camerounais. Du développement à la gestion de produit, 
-            en passant par la cybersécurité et l'IA, explorez avec nous les innovations qui façonnent le futur digital du Cameroun.
-          </p>
-          <button 
-            onClick={() => setCurrentArticle('welcome')}
-            className={styles.actionButton}
-          >
-            Lire la suite →
-          </button>
-        </div>
-      </article>
     </div>
   );
 };
