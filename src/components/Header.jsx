@@ -35,6 +35,9 @@ export const Header = ({ currentPage, setCurrentPage }) => {
             <button onClick={() => setCurrentPage('team')} className="hover:text-gray-200">
               {t('nav.team')}
             </button>
+            <button onClick={() => setCurrentPage('contribute')} className="hover:text-gray-200">
+              {t('nav.contribute')}
+            </button>
             <LanguageSelector />
             <button onClick={toggleTheme} aria-label="Toggle theme" className="p-2 hover:text-gray-200">
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
@@ -73,6 +76,10 @@ export const Header = ({ currentPage, setCurrentPage }) => {
               className="block w-full text-left px-3 py-2 hover:bg-violet-700 rounded"
             >
               {t('nav.team')}
+            </button>
+            <button onClick={() => setCurrentPage('contribute')} 
+                    className="block w-full text-left px-3 py-2 hover:bg-violet-700 rounded">
+              {t('nav.contribute')}
             </button>
             <div className="px-3 py-2">
               <LanguageSelector />

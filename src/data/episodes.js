@@ -2,7 +2,7 @@
 export const episodes = [
     {
       id: 1,
-      language: 'fr', // Langue de l'épisode
+      language: 'en', // Langue de l'épisode
       translations: {
         fr: {
           title: "Bienvenue sur Techies Connect' Podcast",

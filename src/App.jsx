@@ -9,6 +9,9 @@ import { BlogPage } from './pages/Blog';
 import { ArticlePage } from './pages/Article';
 import { AboutPage } from './pages/About';
 import { TeamPage } from './pages/Team';
+import { Newsletter } from './components/Newsletter';
+import { ContributePage } from './pages/Contribute';
+
 
 const App = () => {
   const [currentPage, setCurrentPage] = React.useState('home');
@@ -28,11 +31,13 @@ const App = () => {
       case 'blog':
         return <BlogPage onSelectArticle={setCurrentArticle} />;
       case 'about':
-        return <AboutPage />;
+        return <AboutPage setCurrentPage={setCurrentPage} />;
       case 'team':
-        return <TeamPage />;
+        return <TeamPage setCurrentPage={setCurrentPage} />;  
+      case 'contribute':
+        return <ContributePage setCurrentPage={setCurrentPage} />;
       default:
-        return <HomePage />;
+        return <HomePage setCurrentPage={setCurrentPage} />;
     }
   };
 
@@ -48,7 +53,8 @@ const App = () => {
             }} 
           />
           {renderPage()}
-          <Footer />
+          <Newsletter />
+          <Footer setCurrentPage={setCurrentPage} />
         </div>
       </ThemeProvider>
     </LanguageProvider>
@@ -56,3 +62,4 @@ const App = () => {
 };
 
 export default App;
+
