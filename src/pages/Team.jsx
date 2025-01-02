@@ -3,6 +3,7 @@ import React from 'react';
 import { Linkedin } from 'lucide-react';
 import { useTheme } from '../components/ThemeProvider';
 import { XIcon } from '../components/Icons';
+import { ProfilePlaceholder } from '../components/Placeholders';
 
 export const TeamPage = () => {
   const { styles } = useTheme();
@@ -30,7 +31,10 @@ export const TeamPage = () => {
       <div className="grid md:grid-cols-2 gap-8">
         {team.map((member) => (
           <div key={member.name} className={styles.card}>
-            <img src={member.image} alt={member.name} className="w-full h-64 object-cover" />
+            <div className="w-full h-64">
+              <ProfilePlaceholder name={member.name} />
+            </div>
+            {/* <img src={member.image} alt={member.name} className="w-full h-64 object-cover" /> */}
             <div className="p-6">
               <h2 className="text-xl font-bold mb-2">{member.name}</h2>
               <p className={styles.text + " mb-4"}>{member.role}</p>

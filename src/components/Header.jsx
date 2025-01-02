@@ -2,6 +2,7 @@
 import React from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
+import { Logo } from './Logo';
 
 export const Header = ({ currentPage, setCurrentPage }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -12,16 +13,10 @@ export const Header = ({ currentPage, setCurrentPage }) => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8">
-              <svg viewBox="0 0 300 200">
-                <circle cx="80" cy="100" r="35" fill="currentColor"/>
-                <rect x="70" y="65" width="20" height="40" rx="10" fill={isDark ? '#1F2937' : '#7C3AED'}/>
-                <path d="M120 80 Q150 100 120 120" fill="none" stroke="currentColor" strokeWidth="4"/>
-                <path d="M130 70 Q170 100 130 130" fill="none" stroke="currentColor" strokeWidth="4"/>
-                <path d="M140 60 Q190 100 140 140" fill="none" stroke="currentColor" strokeWidth="4"/>
-              </svg>
+            <div className="w-16 h-16">
+            <Logo />
             </div>
-            <span className="text-xl font-bold">Techies Connect' Podcast</span>
+            {/* <span className="text-xl font-bold">Techies Connect' Podcast</span> */}
           </div>
           
           <div className="hidden md:flex items-center space-x-8">

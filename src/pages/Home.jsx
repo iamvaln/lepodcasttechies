@@ -2,6 +2,7 @@
 import React from 'react';
 import { Play, Pause, Calendar, Clock } from 'lucide-react';
 import { useTheme } from '../components/ThemeProvider';
+import { EpisodePlaceholder } from '../components/Placeholders';
 
 export const HomePage = () => {
   const { styles } = useTheme();
@@ -13,6 +14,7 @@ export const HomePage = () => {
       title: "EP01: Bienvenue sur Techies Connect' Podcast",
       description: "Premier épisode officiel : découvrez la vision du podcast, nos objectifs et les sujets passionnants que nous explorerons ensemble.",
       date: "31 Dec 2024",
+      placeholder: "Welcome to Techies Connect' Podcast",
       duration: "45 min"
     },
     {
@@ -20,6 +22,7 @@ export const HomePage = () => {
       title: "EP02: La protection des données personnelles au Cameroun",
       description: "Analyse détaillée de la nouvelle loi sur la protection des données personnelles au Cameroun : enjeux, impacts et obligations pour les entreprises tech.",
       date: "31 Dec 2024",
+      placeholder: "Data Protection in Cameroon",
       duration: "60 min"
     }
   ];
@@ -49,7 +52,10 @@ export const HomePage = () => {
             <div key={episode.id} className={styles.card}>
               <div className="md:flex">
                 <div className="md:w-1/3">
-                  <img src="/api/placeholder/600/400" alt={episode.title} className="w-full h-64 object-cover" />
+                  {/* <img src="/api/placeholder/600/400" alt={episode.title} className="w-full h-64 object-cover" /> */}
+                  <div className="w-full h-64">
+                    <EpisodePlaceholder episodeNumber={episode.id}  episodePlaceholder={episode.placeholder}/>
+                  </div>
                 </div>
                 <div className="p-8 md:w-2/3">
                   <div className="flex items-center space-x-4 text-sm mb-4">

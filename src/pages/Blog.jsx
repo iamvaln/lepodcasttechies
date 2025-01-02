@@ -1,6 +1,7 @@
 // src/pages/Blog.jsx
 import React from 'react';
 import { useTheme } from '../components/ThemeProvider';
+import { BlogPlaceholder } from '../components/Placeholders';
 
 export const BlogPage = () => {
   const { styles } = useTheme();
@@ -10,7 +11,10 @@ export const BlogPage = () => {
     <div className="max-w-4xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-12">Blog</h1>
       <article className={styles.card}>
-        <img src="/api/placeholder/800/400" alt="Blog cover" className="w-full h-64 object-cover" />
+      <div className="w-full h-64">
+        <BlogPlaceholder />
+      </div>
+        {/* <img src="/api/placeholder/800/400" alt="Blog cover" className="w-full h-64 object-cover" /> */}
         <div className="p-8">
           <h2 className="text-2xl font-bold mb-4">Bienvenue sur Techies Connect' Podcast</h2>
           <div className={styles.text + " mb-4"}>31 Décembre 2024</div>
