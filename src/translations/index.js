@@ -14,6 +14,8 @@ export const translations = {
           subtitle: "3 clicks d'avance sur la tech d'ici et d'ailleurs",
           listenButton: "Écouter sur Spotify"
         },
+        seeAllEpisodes: "Voir tous les épisodes",
+        latestEpisodes: "Derniers Épisodes",
         episodes: {
           title: "Derniers Épisodes",
           listen: "Écouter",
@@ -91,6 +93,34 @@ export const translations = {
           submit: "Envoyer",
           cancel: "Annuler"
         }
+      },
+    episodes: {
+        title: "Tous les Épisodes",
+        listen: "Écouter l'épisode",
+        seeAll: "Voir tous les épisodes",
+        backToList: "Retour aux épisodes",
+        player: {
+          play: "Lire",
+          pause: "Pause",
+          skipForward: "Avancer de 30 secondes",
+          skipBack: "Reculer de 30 secondes",
+          volume: "Volume",
+          speed: "Vitesse de lecture",
+        },
+        language: {
+          fr: "Épisode en Français",
+          en: "Épisode en Anglais"
+        },
+        shareEpisode: "Partager cet épisode",
+        duration: "Durée",
+        releaseDate: "Date de sortie",
+        listenOn: {
+          title: "Écouter sur",
+          spotify: "Écouter sur Spotify",
+          apple: "Écouter sur Apple Podcasts",
+          google: "Écouter sur Google Podcasts",
+          rss: "S'abonner au flux RSS"
+        }
       }
     },
     en: {
@@ -107,6 +137,8 @@ export const translations = {
           subtitle: "3 clicks ahead of tech from here and elsewhere",
           listenButton: "Listen on Spotify"
         },
+        seeAllEpisodes: "See all episodes",
+        latestEpisodes: "Latest Episodes",
         episodes: {
           title: "Latest Episodes",
           listen: "Listen",
@@ -183,6 +215,34 @@ export const translations = {
           message: "Message",
           submit: "Submit",
           cancel: "Cancel"
+        }
+      },
+      episodes: {
+        title: "All Episodes",
+        listen: "Listen to episode",
+        seeAll: "See all episodes",
+        backToList: "Back to episodes",
+        player: {
+          play: "Play",
+          pause: "Pause",
+          skipForward: "Skip forward 30 seconds",
+          skipBack: "Skip back 30 seconds",
+          volume: "Volume",
+          speed: "Playback speed",
+        },
+        language: {
+          fr: "French Episode",
+          en: "English Episode"
+        },
+        shareEpisode: "Share this episode",
+        duration: "Duration",
+        releaseDate: "Release date",
+        listenOn: {
+          title: "Listen on",
+          spotify: "Listen on Spotify",
+          apple: "Listen on Apple Podcasts",
+          google: "Listen on Google Podcasts",
+          rss: "Subscribe to RSS feed"
         }
       }
     }

@@ -4,6 +4,7 @@ import { Play, Pause, Calendar, Clock } from 'lucide-react';
 import { useTheme } from '../components/ThemeProvider';
 import { useTranslation } from '../context/LanguageContext';
 import { LanguageBadge } from '../components/LanguageBadge';
+import { Episode2Placeholder } from '../components/Placeholders';
 
 export const EpisodesPage = ({ onSelectEpisode }) => {
   const { styles } = useTheme();
@@ -54,7 +55,7 @@ export const EpisodesPage = ({ onSelectEpisode }) => {
             <div className="md:flex">
               <div className="md:w-1/3 relative">
                 <div className="w-full h-64">
-                  <EpisodePlaceholder episodeNumber={episode.id} />
+                  <Episode2Placeholder episodeNumber={episode.id} />
                 </div>
                 <LanguageBadge language={episode.language} />
               </div>

@@ -11,13 +11,24 @@ import { AboutPage } from './pages/About';
 import { TeamPage } from './pages/Team';
 import { Newsletter } from './components/Newsletter';
 import { ContributePage } from './pages/Contribute';
+import { EpisodesPage } from './pages/Episodes';
+import { EpisodePlayer } from './pages/EpisodePlayer';
 
 
 const App = () => {
   const [currentPage, setCurrentPage] = React.useState('home');
   const [currentArticle, setCurrentArticle] = React.useState(null);
+  const [currentEpisode, setCurrentEpisode] = React.useState(null);
 
   const renderPage = () => {
+    if (currentEpisode) {
+      return (
+        <EpisodePlayer 
+          episodeId={currentEpisode} 
+          onBack={() => setCurrentEpisode(null)} 
+        />
+      );
+    }
     if (currentPage === 'blog' && currentArticle) {
       return (
         <ArticlePage 
@@ -29,6 +40,8 @@ const App = () => {
     }
 
     switch(currentPage) {
+      case 'episodes':
+        return <EpisodesPage onSelectEpisode={setCurrentEpisode} />;
       case 'blog':
         return <BlogPage onSelectArticle={setCurrentArticle} />;
       case 'about':
@@ -38,7 +51,10 @@ const App = () => {
       case 'contribute':
         return <ContributePage setCurrentPage={setCurrentPage} />;
       default:
-        return <HomePage setCurrentPage={setCurrentPage} />;
+        return <HomePage 
+        setCurrentPage={setCurrentPage}
+        onSelectEpisode={setCurrentEpisode}
+      />
     }
   };
 

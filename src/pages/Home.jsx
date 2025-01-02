@@ -7,7 +7,7 @@ import { episodes } from '../data/episodes';
 import { EpisodePlaceholder } from '../components/Placeholders';
 import { LanguageBadge } from '../components/LanguageBadge';
 
-export const HomePage = () => {
+export const HomePage = ({ setCurrentPage }) => {
   const { styles } = useTheme();
   const { t, language } = useTranslation();
   const [isPlaying, setIsPlaying] = React.useState(null); // Track which episode is playing
@@ -73,6 +73,15 @@ export const HomePage = () => {
               </div>
             );
           })}
+
+          <div className="text-center mt-8">
+            <button 
+              onClick={() => setCurrentPage('episodes')}
+              className={`${styles.button} px-6 py-3 rounded-full`}
+            >
+              {t('home.seeAllEpisodes')}
+            </button>
+          </div>
         </div>
       </div>
     </>
