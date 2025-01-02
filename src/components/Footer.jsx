@@ -2,15 +2,12 @@
 import React from 'react';
 import { Linkedin, Rss } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
-
-const XIcon = () => (
-  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-  </svg>
-);
+import { useTranslation } from '../context/LanguageContext';
+import { XIcon } from './Icons';
 
 export const Footer = () => {
   const { isDark } = useTheme();
+  const { t } = useTranslation();
   
   return (
     <footer className={`${isDark ? 'bg-gray-800' : 'bg-gray-900'} text-white py-8`}>
@@ -18,10 +15,10 @@ export const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4">Techies Connect' Podcast</h3>
-            <p className="text-gray-400">3 clicks d'avance sur la tech d'ici et d'ailleurs</p>
+            <p className="text-gray-400">{t('home.hero.subtitle')}</p>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-4">Écoutez-nous sur</h3>
+            <h3 className="text-xl font-bold mb-4">{t('footer.listenOn')}</h3>
             <ul className="space-y-2">
               <li><a href="#" className="text-gray-400 hover:text-white">Spotify</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white">Apple Podcasts</a></li>
@@ -30,7 +27,7 @@ export const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-4">Suivez-nous</h3>
+            <h3 className="text-xl font-bold mb-4">{t('footer.followUs')}</h3>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white"><Linkedin size={24} /></a>
               <a href="#" className="text-gray-400 hover:text-white"><XIcon /></a>

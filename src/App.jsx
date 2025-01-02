@@ -1,6 +1,7 @@
 // src/App.jsx
 import React from 'react';
 import { ThemeProvider } from './components/ThemeProvider';
+import { LanguageProvider } from './context/LanguageContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/Home';
@@ -36,21 +37,22 @@ const App = () => {
   };
 
   return (
-    <ThemeProvider>
-      <div>
-        <Header 
-          currentPage={currentPage} 
-          setCurrentPage={(page) => {
-            setCurrentPage(page);
-            setCurrentArticle(null); // Reset article when changing page
-          }} 
-        />
-        {renderPage()}
-        <Footer />
-      </div>
-    </ThemeProvider>
+    <LanguageProvider>
+      <ThemeProvider>
+        <div>
+          <Header 
+            currentPage={currentPage} 
+            setCurrentPage={(page) => {
+              setCurrentPage(page);
+              setCurrentArticle(null);
+            }} 
+          />
+          {renderPage()}
+          <Footer />
+        </div>
+      </ThemeProvider>
+    </LanguageProvider>
   );
 };
 
 export default App;
-

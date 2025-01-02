@@ -10,7 +10,7 @@ export const translations = {
       home: {
         hero: {
           title: "Techies Connect' Podcast",
-          subtitle: "Explorez l'écosystème tech camerounais à travers nos podcasts bi-mensuels",
+          subtitle: "3 clicks d'avance sur la tech d'ici et d'ailleurs",
           listenButton: "Écouter sur Spotify"
         },
         episodes: {
@@ -37,7 +37,8 @@ export const translations = {
         roles: {
           host: "Présentatrice & Créatrice",
           editor: "Monteur"
-        }
+        },
+        website: "Site web"
       },
       footer: {
         listenOn: "Écoutez-nous sur",
@@ -59,7 +60,7 @@ export const translations = {
       home: {
         hero: {
           title: "Techies Connect' Podcast",
-          subtitle: "Explore the Cameroonian tech ecosystem through our bi-monthly podcasts",
+          subtitle: "3 clicks ahead of tech from here and elsewhere",
           listenButton: "Listen on Spotify"
         },
         episodes: {
@@ -86,7 +87,8 @@ export const translations = {
         roles: {
           host: "Host & Creator",
           editor: "Editor"
-        }
+        },
+        website: "Website"
       },
       footer: {
         listenOn: "Listen on",
