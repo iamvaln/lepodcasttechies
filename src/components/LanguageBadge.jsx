@@ -3,7 +3,6 @@ import React from 'react';
 import { useTranslation } from '../context/LanguageContext';
 
 export const LanguageBadge = ({ language }) => {
-  const { t } = useTranslation();
   
   const badgeStyles = {
     fr: "bg-blue-500 text-white",

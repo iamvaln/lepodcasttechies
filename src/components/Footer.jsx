@@ -63,10 +63,10 @@ export const Footer = ({ setCurrentPage, currentPage }) => {
           <div>
             <h3 className="text-xl font-bold mb-4">{t('footer.listenOn')}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white">Spotify</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">Apple Podcasts</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">Google Podcasts</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">RSS Feed</a></li>
+              <li><a href="https://www.spotify.com" className="text-gray-400 hover:text-white">Spotify</a></li>
+              <li><a href="https://www.https://www.spotify.com" className="text-gray-400 hover:text-white">Apple Podcasts</a></li>
+              <li><a href="https://www.spotify.com" className="text-gray-400 hover:text-white">Google Podcasts</a></li>
+              <li><a href="https://www.anchor.fm" className="text-gray-400 hover:text-white">RSS Feed</a></li>
             </ul>
           </div>
 
@@ -74,9 +74,9 @@ export const Footer = ({ setCurrentPage, currentPage }) => {
           <div>
             <h3 className="text-xl font-bold mb-4">{t('footer.followUs')}</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white"><Linkedin size={24} /></a>
-              <a href="#" className="text-gray-400 hover:text-white"><XIcon /></a>
-              <a href="#" className="text-gray-400 hover:text-white"><Rss size={24} /></a>
+              <a href="https://www.linkedin.com/feed/" className="text-gray-400 hover:text-white"><Linkedin size={24} /></a>
+              <a href="https://www.x.com" className="text-gray-400 hover:text-white"><XIcon /></a>
+              <a href="https://www.anchor.fm" className="text-gray-400 hover:text-white"><Rss size={24} /></a>
             </div>
           </div>
         </div>
