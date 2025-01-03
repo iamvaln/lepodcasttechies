@@ -33,9 +33,9 @@ export const Header = ({ currentPage, setCurrentPage }) => {
 
   const navItems = [
     { key: 'home', label: t('nav.home') },
+    { key: 'episodes', label: t('nav.episodes') },
     { key: 'blog', label: t('nav.blog') },
     { key: 'about', label: t('nav.about') },
-    { key: 'team', label: t('nav.team') },
     { key: 'contribute', label: t('nav.contribute') }
   ];
 

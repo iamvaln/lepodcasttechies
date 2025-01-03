@@ -3,6 +3,7 @@ export const translations = {
     fr: {
       nav: {
         home: 'Accueil',
+        episodes: "Épisodes",
         blog: 'Blog',
         about: 'À propos',
         team: 'Équipe',
@@ -36,7 +37,11 @@ export const translations = {
         title: "À propos",
         joinUs: "Rejoignez l'Aventure",
         joinUsText: "Vous souhaitez partager votre expertise, proposer un sujet ou recommander un invité ?",
-        contributeButton: "Comment Participer"
+        contributeButton: "Comment Participer",
+        team: {
+            title: "Notre Équipe",
+            website: "Site web"
+          },
       },
       team: {
         title: "Notre Équipe",
@@ -126,6 +131,7 @@ export const translations = {
     en: {
       nav: {
         home: 'Home',
+        episodes: "Episodes",
         blog: 'Blog',
         about: 'About',
         team: 'Team',
@@ -159,7 +165,11 @@ export const translations = {
         title: "About",
         joinUs: "Join the Adventure",
         joinUsText: "Want to share your expertise, suggest a topic, or recommend a guest?",
-        contributeButton: "How to Contribute"  
+        contributeButton: "How to Contribute",
+        team: {
+          title: "Our Team",
+          website: "Website"
+        },  
       },
       team: {
         title: "Our Team",
