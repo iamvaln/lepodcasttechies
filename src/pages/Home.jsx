@@ -1,19 +1,60 @@
 // src/pages/Home.jsx
 import React from 'react';
-import { Play, Pause, Calendar, Clock } from 'lucide-react';
+import { Search,Play, Pause, Calendar, Clock } from 'lucide-react';
 import { useTheme } from '../components/ThemeProvider';
 import { useTranslation } from '../context/LanguageContext';
 import { episodes } from '../data/episodes';
 import { EpisodePlaceholder } from '../components/Placeholders';
 import { LanguageBadge } from '../components/LanguageBadge';
+import _ from 'lodash';
 
-export const HomePage = ({ setCurrentPage }) => {
+export const HomePage = ({ setCurrentPage,setCurrentEpisode }) => {
   const { styles } = useTheme();
   const { t, language } = useTranslation();
   const [isPlaying, setIsPlaying] = React.useState(null); // Track which episode is playing
+  const [searchTerm, setSearchTerm] = React.useState('');
+  const [searchResults, setSearchResults] = React.useState([]);
+  const [showResults, setShowResults] = React.useState(false);
+  const searchRef = React.useRef(null);
+
+  const handleSearch = React.useCallback(
+    _.debounce((term) => {
+      if (!term.trim()) {
+        setSearchResults([]);
+        return;
+      }
+ 
+      const searchIn = {
+        episodes: episodes.filter(episode =>
+          episode.translations[language].title.toLowerCase().includes(term.toLowerCase()) ||
+          episode.translations[language].description.toLowerCase().includes(term.toLowerCase())
+        )
+      };
+ 
+      setSearchResults(searchIn);
+    }, 300),
+    [language]
+  );
+ 
+  React.useEffect(() => {
+    handleSearch(searchTerm);
+  }, [searchTerm, handleSearch]);
+ 
+  // Fermer les résultats quand on clique ailleurs
+  React.useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setShowResults(false);
+      }
+    };
+ 
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <>
+    {/* Hero Section */}
       <div className={`${styles.heroGradient} text-white py-16`}>
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center">
@@ -26,10 +67,54 @@ export const HomePage = ({ setCurrentPage }) => {
                 {t('home.hero.listenButton')}
               </button>
             </div>
+             {/* Barre de recherche intégrée au hero */}
+             <div className="max-w-2xl mx-auto">
+              <div className="relative">
+                <input
+                 type="text"
+                 placeholder={t('home.search.placeholder')}
+                 value={searchTerm}
+                 onChange={(e) => {
+                   setSearchTerm(e.target.value);
+                   setShowResults(true);
+                 }}
+                 onFocus={() => setShowResults(true)}
+                 className="w-full px-4 py-3 rounded-full border bg-white/10 backdrop-blur-sm text-white placeholder-white/70 focus:ring-2 focus:ring-white/50"
+               />
+               <button className="absolute right-2 top-2 text-white/70 hover:text-white">
+                 <Search size={24} />
+               </button>
+
+               {/* Résultats de recherche */}
+               {showResults && searchResults.episodes?.length > 0 && (
+                 <div className="absolute w-full mt-2 bg-white rounded-lg shadow-lg overflow-hidden">
+                   <div className="max-h-96 overflow-y-auto">
+                     {searchResults.episodes.map((episode) => (
+                      <button
+                        key={episode.id}
+                        onClick={() => {
+                          setShowResults(false);
+                          setCurrentPage('episodePlayer');  // ou 'blog' pour les articles
+                          setCurrentEpisode(episode.id);    // ou setCurrentArticle pour les articles
+                        }}
+                        className="w-full px-4 py-3 text-left hover:bg-gray-50 focus:bg-gray-50"
+                      >
+                         <p className="font-medium text-gray-900">
+                           {episode.translations[language].title}
+                         </p>
+                         <p className="text-sm text-gray-500 mt-1 line-clamp-2">
+                           {episode.translations[language].description}
+                         </p>
+                       </button>
+                     ))}
+                     </div>
+                   </div>
+                 )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
       <div className="max-w-5xl mx-auto px-4 py-12">
         <h2 className="text-3xl font-bold mb-8">{t('home.episodes.title')}</h2>
         <div className="space-y-8">

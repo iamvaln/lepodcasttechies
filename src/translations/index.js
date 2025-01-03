@@ -15,6 +15,14 @@ export const translations = {
           subtitle: "3 clicks d'avance sur la tech d'ici et d'ailleurs",
           listenButton: "Écouter sur Spotify"
         },
+        search: {
+          placeholder: "Rechercher un épisode ou un article...",
+          button: "Rechercher",
+          searching: "Recherche...",
+          resultsEpisodes: "Épisodes",
+          resultsArticles: "Articles",
+          noResults: "Aucun résultat trouvé"
+        },
         seeAllEpisodes: "Voir tous les épisodes",
         latestEpisodes: "Derniers Épisodes",
         episodes: {
@@ -142,6 +150,14 @@ export const translations = {
           title: "Techies Connect' Podcast",
           subtitle: "3 clicks ahead of tech from here and elsewhere",
           listenButton: "Listen on Spotify"
+        },
+        search: {
+            placeholder: "Search for an episode or article...",
+            button: "Search",
+            searching: "Searching...",
+            resultsEpisodes: "Episodes",
+            resultsArticles: "Articles",
+            noResults: "No results found"
         },
         seeAllEpisodes: "See all episodes",
         latestEpisodes: "Latest Episodes",

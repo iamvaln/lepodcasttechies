@@ -65,6 +65,7 @@ const App = () => {
       default:
         return <HomePage 
         setCurrentPage={setCurrentPage}
+        setCurrentEpisode={setCurrentEpisode}
         onSelectEpisode={setCurrentEpisode}
       />
     }
