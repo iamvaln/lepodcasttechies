@@ -2,26 +2,66 @@
 import React from 'react';
 import { Linkedin, Rss } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
+import { useTranslation } from '../context/LanguageContext';
+import { XIcon } from './Icons';
 
-const XIcon = () => (
-  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-  </svg>
-);
+const FooterLink = ({ page, currentPage, onClick, children }) => {
+  const isActive = currentPage === page;
+  return (
+    <button 
+      onClick={() => onClick(page)} 
+      className={`${isActive ? 'text-white font-medium' : 'text-gray-400'} hover:text-white relative group`}
+    >
+      {children}
+      {isActive && (
+        <span className="absolute -left-4 top-1/2 -translate-y-1/2 w-2 h-2 bg-white rounded-full" />
+      )}
+    </button>
+  );
+};
 
-export const Footer = () => {
+export const Footer = ({ setCurrentPage, currentPage }) => {
   const { isDark } = useTheme();
+  const { t } = useTranslation();
+
+  const navItems = [
+    { key: 'about', label: t('nav.about') },
+    { key: 'blog', label: t('nav.blog') },
+    { key: 'team', label: t('nav.team') },
+    { key: 'contribute', label: t('nav.contribute') }
+  ];
   
   return (
     <footer className={`${isDark ? 'bg-gray-800' : 'bg-gray-900'} text-white py-8`}>
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-4 gap-8">
+          {/* Section Podcast Info */}
           <div>
             <h3 className="text-xl font-bold mb-4">Techies Connect' Podcast</h3>
-            <p className="text-gray-400">3 clicks d'avance sur la tech d'ici et d'ailleurs</p>
+            <p className="text-gray-400">{t('footer.podcastIntro')}</p>
           </div>
+
+          {/* Section Liens Rapides */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Écoutez-nous sur</h3>
+            <h3 className="text-xl font-bold mb-4">{t('footer.quickLinks')}</h3>
+            <ul className="space-y-2 pl-4">
+              {navItems.map(item => (
+                <li key={item.key}>
+                  <FooterLink 
+                    page={item.key}
+                    currentPage={currentPage}
+                    onClick={setCurrentPage}
+                  >
+                    {item.label}
+                  </FooterLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Section Plateformes d'écoute */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">{t('footer.listenOn')}</h3>
             <ul className="space-y-2">
               <li><a href="#" className="text-gray-400 hover:text-white">Spotify</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white">Apple Podcasts</a></li>
@@ -29,8 +69,10 @@ export const Footer = () => {
               <li><a href="#" className="text-gray-400 hover:text-white">RSS Feed</a></li>
             </ul>
           </div>
+
+          {/* Section Réseaux Sociaux */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Suivez-nous</h3>
+            <h3 className="text-xl font-bold mb-4">{t('footer.followUs')}</h3>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white"><Linkedin size={24} /></a>
               <a href="#" className="text-gray-400 hover:text-white"><XIcon /></a>
