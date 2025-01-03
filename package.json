@@ -13,7 +13,7 @@
     "react-scripts": "^3.0.1",
     "tailwindcss": "^3.4.17"
   },
-  "homepage": "https://yourusername.github.io/repository-name",
+  "homepage": "https://iamvaln.github.io/lepodcasttechies",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "export NODE_OPTIONS=--openssl-legacy-provider && npm run build && gh-pages -d build",
