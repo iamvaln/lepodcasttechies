@@ -8,7 +8,7 @@ import { BlogPlaceholder } from '../components/Placeholders';
 import { ShareButtons } from '../components/ShareButtons';
 import { articles } from '../data/blogArticles';
 
-export const ArticlePage = ({ articleId, onBack, setCurrentPage }) => {
+export const ArticlePage = ({ articleId, onBack, setCurrentPage, setCurrentEpisode }) => {
   const { styles } = useTheme();
   const { t, language } = useTranslation();
   const article = articles.find(a => a.id === articleId);
@@ -82,14 +82,15 @@ export const ArticlePage = ({ articleId, onBack, setCurrentPage }) => {
                 </div>
               </div>
             )}
-            {content.cta && (
+            {content.cta && article.relatedEpisode && (
               <div className={`${styles.card} p-6 my-8 text-center`}>
                 <h3 className="text-xl font-bold mb-4">{content.cta.title}</h3>
                 <p className={`${styles.text} mb-4`}>{content.cta.content}</p>
                 <button
                   className={`${styles.button} px-6 py-2 rounded-lg flex items-center justify-center mx-auto`}
                   onClick={() => {
-                    // Logique pour jouer l'épisode ou rediriger vers la page d'écoute
+                  setCurrentEpisode(article.relatedEpisode);
+                  setCurrentPage('episodePlayer');
                   }}
                 >
                   <Play className="mr-2" size={20} />

@@ -54,8 +54,8 @@ export const aboutContent = {
     {
       id: "valentine",
       image: "/api/placeholder/400/400",
-      website: "https://valentineng.dev",
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/iamnv",
+      twitter: "https://x.com/iam_n_v",
       translations: {
         fr: {
           name: "Valentine Nguemne",
@@ -72,8 +72,8 @@ export const aboutContent = {
     {
       id: "steve",
       image: "/api/placeholder/400/400",
-      linkedin: "#",
-      twitter: "#",
+      linkedin: "https://www.linkedin.com/in/steve-ntepp-a29356144/",
+      twitter: "https://x.com/JsNtepp",
       translations: {
         fr: {
           name: "Steve Ntepp",
