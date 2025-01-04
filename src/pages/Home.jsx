@@ -36,8 +36,6 @@ export const HomePage = ({ setCurrentPage,setCurrentEpisode }) => {
     }, 300),
     [language]
   );
- 
-
   React.useEffect(() => {
     handleSearch(searchTerm);
   }, [searchTerm, handleSearch]);
