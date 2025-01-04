@@ -100,8 +100,8 @@ export const HomePage = ({ setCurrentPage,setCurrentEpisode }) => {
                         key={episode.id}
                         onClick={() => {
                           setShowResults(false);
-                          setCurrentPage('episodes');  // ou 'blog' pour les articles
-                          setCurrentEpisode(episode.id);    // ou setCurrentArticle pour les articles
+                          setCurrentPage('episodePlayer');  // ou 'blog' pour les articles
+                          setCurrentEpisode(episode.id);  // ou setCurrentArticle(episode.id) pour les articles
                         }}
                         className="w-full px-4 py-3 text-left hover:bg-gray-50 focus:bg-gray-50"
                       >
