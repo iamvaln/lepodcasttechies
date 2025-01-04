@@ -3,59 +3,37 @@ import React from 'react';
 import { Play, Pause, Calendar, Clock } from 'lucide-react';
 import { useTheme } from '../components/ThemeProvider';
 import { useTranslation } from '../context/LanguageContext';
+import { EpisodePlaceholder } from '../components/Placeholders';
 import { LanguageBadge } from '../components/LanguageBadge';
-import { Episode2Placeholder } from '../components/Placeholders';
+import { publishedEpisodes,sortEpisodesByDate, paginateEpisodes} from '../data/episodes';
+import { APP_CONFIG } from '../constants/config';
 
-export const EpisodesPage = ({ onSelectEpisode }) => {
+export const EpisodesPage = ({ setCurrentPage, setCurrentEpisode  }) => {
   const { styles } = useTheme();
   const { t, language } = useTranslation();
   const [isPlaying, setIsPlaying] = React.useState(null);
-
-  const episodes = [
-    {
-      id: 'ep01-welcome',
-      language: 'fr',
-      date: "14 Janvier 2025",
-      duration: "45 min",
-      translations: {
-        fr: {
-          title: "EP01: Bienvenue sur Techies Connect' Podcast",
-          description: "Premier épisode officiel : découvrez la vision du podcast, nos objectifs et les sujets passionnants que nous explorerons ensemble."
-        },
-        en: {
-          title: "EP01: Welcome to Techies Connect' Podcast",
-          description: "First official episode: discover the podcast's vision, our goals and the exciting topics we'll explore together."
-        }
-      }
-    },
-    {
-      id: 'ep02-data-protection',
-      language: 'fr',
-      date: "28 Janvier 2025",
-      duration: "60 min",
-      translations: {
-        fr: {
-          title: "EP02: La protection des données personnelles au Cameroun",
-          description: "Analyse détaillée de la nouvelle loi sur la protection des données personnelles au Cameroun : enjeux, impacts et obligations pour les entreprises tech."
-        },
-        en: {
-          title: "EP02: Data Protection in Cameroon",
-          description: "Detailed analysis of Cameroon's new personal data protection law: challenges, impacts, and obligations for tech companies."
-        }
-      }
-    }
-  ];
+  const [currentPage] = React.useState(1);
+  const sortedEpisodes = sortEpisodesByDate(publishedEpisodes);
+  const paginatedEpisodes = paginateEpisodes(sortedEpisodes, currentPage);
+  const totalPages = Math.ceil(publishedEpisodes.length / APP_CONFIG.EPISODES_PER_PAGE);
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-8">{t('episodes.title')}</h1>
       <div className="space-y-8">
-        {episodes.map((episode) => (
+        {paginatedEpisodes.map((episode) => (
           <div key={episode.id} className={styles.card}>
+            <div 
+             className="md:flex cursor-pointer" 
+             onClick={() => {
+               setCurrentEpisode(episode.id);
+               setCurrentPage('episodePlayer');
+             }}
+           >
             <div className="md:flex">
               <div className="md:w-1/3 relative">
                 <div className="w-full h-64">
-                  <Episode2Placeholder episodeNumber={episode.id} />
+                <EpisodePlaceholder episodeNumber={episode.id} episodePlaceholder={episode.placeholder} />
                 </div>
                 <LanguageBadge language={episode.language} />
               </div>
@@ -77,16 +55,36 @@ export const EpisodesPage = ({ onSelectEpisode }) => {
                   {episode.translations[language].description}
                 </p>
                 <button
-                  onClick={() => onSelectEpisode(episode.id)}
-                  className={`${styles.actionButton} mt-4`}
-                >
+                 onClick={(e) => {
+                   e.stopPropagation(); // Empêche le déclenchement du onClick parent
+                   setCurrentEpisode(episode.id);
+                   setCurrentPage('episodePlayer');
+                 }}
+                 className={`${styles.actionButton} mt-4`}
+               >
                   {t('episodes.listen')}
                 </button>
               </div>
             </div>
           </div>
+          </div>
         ))}
       </div>
+        {/* Pagination */}
+        <div className="mt-8 flex justify-center space-x-2">
+            {Array.from({ length: totalPages }).map((_, index) => (
+            <button
+                key={index}
+                onClick={() => setCurrentPage(index + 1)}
+                className={`${
+                currentPage === index + 1 ? styles.button : 'bg-gray-200'
+                } px-4 py-2 rounded-lg`}
+            >
+                {index + 1}
+            </button>
+            ))}
+        </div>
+
     </div>
   );
 };

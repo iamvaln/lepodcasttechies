@@ -3,6 +3,7 @@ export const translations = {
     fr: {
       nav: {
         home: 'Accueil',
+        episodes: "Épisodes",
         blog: 'Blog',
         about: 'À propos',
         team: 'Équipe',
@@ -13,6 +14,14 @@ export const translations = {
           title: "Techies Connect' Podcast",
           subtitle: "3 clicks d'avance sur la tech d'ici et d'ailleurs",
           listenButton: "Écouter sur Spotify"
+        },
+        search: {
+          placeholder: "Rechercher un épisode ou un article...",
+          button: "Rechercher",
+          searching: "Recherche...",
+          resultsEpisodes: "Épisodes",
+          resultsArticles: "Articles",
+          noResults: "Aucun résultat trouvé"
         },
         seeAllEpisodes: "Voir tous les épisodes",
         latestEpisodes: "Derniers Épisodes",
@@ -36,7 +45,11 @@ export const translations = {
         title: "À propos",
         joinUs: "Rejoignez l'Aventure",
         joinUsText: "Vous souhaitez partager votre expertise, proposer un sujet ou recommander un invité ?",
-        contributeButton: "Comment Participer"
+        contributeButton: "Comment Participer",
+        team: {
+            title: "Notre Équipe",
+            website: "Site web"
+          },
       },
       team: {
         title: "Notre Équipe",
@@ -99,6 +112,8 @@ export const translations = {
         listen: "Écouter l'épisode",
         seeAll: "Voir tous les épisodes",
         backToList: "Retour aux épisodes",
+        relatedContent: "Article complémentaire",
+        readArticle: "Lire l'article associé",
         player: {
           play: "Lire",
           pause: "Pause",
@@ -121,11 +136,24 @@ export const translations = {
           google: "Écouter sur Google Podcasts",
           rss: "S'abonner au flux RSS"
         }
-      }
+      },
+      theme: {
+        dark: 'Mode Sombre',
+        light: "Mode clair",
+      },
+      search: {
+        placeholder: "Rechercher un épisode ou un article...",
+        button: "Rechercher",
+        searching: "Recherche...",
+        resultsEpisodes: "Épisodes",
+        resultsArticles: "Articles",
+        noResults: "Aucun résultat trouvé"
+      },
     },
     en: {
       nav: {
         home: 'Home',
+        episodes: "Episodes",
         blog: 'Blog',
         about: 'About',
         team: 'Team',
@@ -136,6 +164,14 @@ export const translations = {
           title: "Techies Connect' Podcast",
           subtitle: "3 clicks ahead of tech from here and elsewhere",
           listenButton: "Listen on Spotify"
+        },
+        search: {
+            placeholder: "Search for an episode or article...",
+            button: "Search",
+            searching: "Searching...",
+            resultsEpisodes: "Episodes",
+            resultsArticles: "Articles",
+            noResults: "No results found"
         },
         seeAllEpisodes: "See all episodes",
         latestEpisodes: "Latest Episodes",
@@ -159,7 +195,11 @@ export const translations = {
         title: "About",
         joinUs: "Join the Adventure",
         joinUsText: "Want to share your expertise, suggest a topic, or recommend a guest?",
-        contributeButton: "How to Contribute"  
+        contributeButton: "How to Contribute",
+        team: {
+          title: "Our Team",
+          website: "Website"
+        },  
       },
       team: {
         title: "Our Team",
@@ -222,6 +262,8 @@ export const translations = {
         listen: "Listen to episode",
         seeAll: "See all episodes",
         backToList: "Back to episodes",
+        relatedContent: "Related Content",
+        readArticle: "Read related article",
         player: {
           play: "Play",
           pause: "Pause",
@@ -244,6 +286,18 @@ export const translations = {
           google: "Listen on Google Podcasts",
           rss: "Subscribe to RSS feed"
         }
-      }
+      },
+      theme: {
+        dark: 'Dark Mode',
+        light: "Light Mode",
+      },
+      search: {
+          placeholder: "Search for an episode or article...",
+          button: "Search",
+          searching: "Searching...",
+          resultsEpisodes: "Episodes",
+          resultsArticles: "Articles",
+          noResults: "No results found"
+      },
     }
   };

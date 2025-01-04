@@ -95,6 +95,7 @@ export const articles = [
   },
   {
     id: 'data-protection',
+    relatedEpisode: 2, 
     translations: {
       fr: {
         title: "La nouvelle loi sur la protection des données au Cameroun : Ce qui change pour les techies",
