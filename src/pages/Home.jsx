@@ -21,7 +21,7 @@ export const HomePage = ({ setCurrentPage,setCurrentEpisode }) => {
   const handleSearch = React.useCallback(
     _.debounce((term) => {
       if (!term.trim()) {
-        setSearchResults([]);
+        setSearchResults([setCurrentEpisode, setCurrentPage]);
         return;
       }
  
@@ -50,7 +50,7 @@ export const HomePage = ({ setCurrentPage,setCurrentEpisode }) => {
  
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [setCurrentEpisode, setCurrentPage]);
+  }, []);
 
   return (
     <>
