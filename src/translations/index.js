@@ -141,6 +141,14 @@ export const translations = {
         dark: 'Mode Sombre',
         light: "Mode clair",
       },
+      search: {
+        placeholder: "Rechercher un épisode ou un article...",
+        button: "Rechercher",
+        searching: "Recherche...",
+        resultsEpisodes: "Épisodes",
+        resultsArticles: "Articles",
+        noResults: "Aucun résultat trouvé"
+      },
     },
     en: {
       nav: {
@@ -282,6 +290,14 @@ export const translations = {
       theme: {
         dark: 'Dark Mode',
         light: "Light Mode",
+      },
+      search: {
+          placeholder: "Search for an episode or article...",
+          button: "Search",
+          searching: "Searching...",
+          resultsEpisodes: "Episodes",
+          resultsArticles: "Articles",
+          noResults: "No results found"
       },
     }
   };

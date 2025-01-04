@@ -65,7 +65,7 @@ export const HomePage = ({ setCurrentPage,setCurrentEpisode }) => {
             </p>
             <div className="flex justify-center mb-8">
               <a 
-                href={LISTENING_PLATFORMS.spotify}
+                href={LISTENING_PLATFORMS.spotify} 
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${styles.button} px-6 py-3 rounded-full flex items-center`}
