@@ -8,7 +8,6 @@ import { HomePage } from './pages/Home';
 import { BlogPage } from './pages/Blog';
 import { ArticlePage } from './pages/Article';
 import { AboutPage } from './pages/About';
-import { TeamPage } from './pages/Team';
 import { Newsletter } from './components/Newsletter';
 import { ContributePage } from './pages/Contribute';
 import { EpisodesPage } from './pages/Episodes';
@@ -26,51 +25,81 @@ function ErrorFallback() {
     </div>
   );
 }
-
 const App = () => {
   const [currentPage, setCurrentPage] = React.useState('home');
   const [currentArticle, setCurrentArticle] = React.useState(null);
   const [currentEpisode, setCurrentEpisode] = React.useState(null);
-
+ 
+  // Nouvelle fonction pour gérer la navigation
+  const handlePageChange = (newPage) => {
+    // Si on navigue vers une autre page que 'episodes' ou 'episodePlayer',
+    // on réinitialise l'épisode en cours
+    if (newPage !== 'episodes' && newPage !== 'episodePlayer') {
+      setCurrentEpisode(null);
+    }
+    // Réinitialiser l'article si on ne va pas sur le blog
+    if (newPage !== 'blog') {
+      setCurrentArticle(null);
+    }
+    setCurrentPage(newPage);
+  };
+ 
   const renderPage = () => {
-    if (currentEpisode) {
+    if (currentPage === 'episodePlayer' && currentEpisode) {
       return (
         <EpisodePlayer 
           episodeId={currentEpisode} 
-          onBack={() => setCurrentEpisode(null)} 
+          onBack={() => {
+            setCurrentEpisode(null);
+            setCurrentPage('episodes');
+          }} 
+          setCurrentPage={handlePageChange} 
+          setCurrentArticle={setCurrentArticle}
         />
       );
     }
+ 
     if (currentPage === 'blog' && currentArticle) {
       return (
         <ArticlePage 
-        articleId={currentArticle} 
-        onBack={() => setCurrentArticle(null)}
-        setCurrentPage={setCurrentPage}
+          articleId={currentArticle} 
+          onBack={() => setCurrentArticle(null)}
+          setCurrentPage={handlePageChange}
         />
       );
     }
-
+ 
     switch(currentPage) {
       case 'episodes':
-        return <EpisodesPage onSelectEpisode={setCurrentEpisode} />;
+        return <EpisodesPage 
+          setCurrentPage={handlePageChange} 
+          setCurrentEpisode={setCurrentEpisode}
+        />;
       case 'blog':
+        if (currentArticle) {
+          return (
+            <ArticlePage 
+              articleId={currentArticle} 
+              onBack={() => setCurrentArticle(null)}
+              setCurrentPage={handlePageChange}
+              setCurrentEpisode={setCurrentEpisode} 
+            />
+          );
+        }
         return <BlogPage onSelectArticle={setCurrentArticle} />;
       case 'about':
-        return <AboutPage setCurrentPage={setCurrentPage} />;
-      case 'team':
-        return <TeamPage setCurrentPage={setCurrentPage} />;  
+        return <AboutPage setCurrentPage={handlePageChange} />;
       case 'contribute':
-        return <ContributePage setCurrentPage={setCurrentPage} />;
+        return <ContributePage setCurrentPage={handlePageChange} />;
       default:
         return <HomePage 
-        setCurrentPage={setCurrentPage}
-        setCurrentEpisode={setCurrentEpisode}
-        onSelectEpisode={setCurrentEpisode}
-      />
+          setCurrentPage={handlePageChange}
+          setCurrentEpisode={setCurrentEpisode}
+          onSelectEpisode={setCurrentEpisode}
+        />;
     }
   };
-
+ 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <Router>
@@ -79,24 +108,20 @@ const App = () => {
             <div>
               <Header 
                 currentPage={currentPage} 
-                setCurrentPage={(page) => {
-                  setCurrentPage(page);
-                  setCurrentArticle(null);
-                }} 
+                setCurrentPage={handlePageChange} 
               />
               {renderPage()}
               <Newsletter />
-                <Footer 
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage} 
-            />
+              <Footer 
+                currentPage={currentPage}
+                setCurrentPage={handlePageChange} 
+              />
             </div>
           </ThemeProvider>
         </LanguageProvider>
       </Router>
     </ErrorBoundary>
   );
-};
-
-export default App;
-
+ };
+ 
+ export default App;

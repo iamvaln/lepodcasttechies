@@ -112,6 +112,8 @@ export const translations = {
         listen: "Écouter l'épisode",
         seeAll: "Voir tous les épisodes",
         backToList: "Retour aux épisodes",
+        relatedContent: "Article complémentaire",
+        readArticle: "Lire l'article associé",
         player: {
           play: "Lire",
           pause: "Pause",
@@ -134,7 +136,11 @@ export const translations = {
           google: "Écouter sur Google Podcasts",
           rss: "S'abonner au flux RSS"
         }
-      }
+      },
+      theme: {
+        dark: 'Mode Sombre',
+        light: "Mode clair",
+      },
     },
     en: {
       nav: {
@@ -248,6 +254,8 @@ export const translations = {
         listen: "Listen to episode",
         seeAll: "See all episodes",
         backToList: "Back to episodes",
+        relatedContent: "Related Content",
+        readArticle: "Read related article",
         player: {
           play: "Play",
           pause: "Pause",
@@ -270,6 +278,10 @@ export const translations = {
           google: "Listen on Google Podcasts",
           rss: "Subscribe to RSS feed"
         }
-      }
+      },
+      theme: {
+        dark: 'Dark Mode',
+        light: "Light Mode",
+      },
     }
   };

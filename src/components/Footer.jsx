@@ -1,9 +1,10 @@
 // src/components/Footer.jsx
 import React from 'react';
-import { Linkedin, Rss } from 'lucide-react';
+import { Linkedin, Rss, Youtube } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { useTranslation } from '../context/LanguageContext';
-import { XIcon } from './Icons';
+import { SpotifyIcon, XIcon } from './Icons';
+import { SOCIAL_LINKS, LISTENING_PLATFORMS } from '../constants/config';
 
 const FooterLink = ({ page, currentPage, onClick, children }) => {
   const isActive = currentPage === page;
@@ -25,12 +26,13 @@ export const Footer = ({ setCurrentPage, currentPage }) => {
   const { t } = useTranslation();
 
   const navItems = [
-    { key: 'about', label: t('nav.about') },
+    { key: 'episodes', label: t('nav.episodes') },
     { key: 'blog', label: t('nav.blog') },
-    { key: 'team', label: t('nav.team') },
+    { key: 'about', label: t('nav.about') },
     { key: 'contribute', label: t('nav.contribute') }
   ];
   
+
   return (
     <footer className={`${isDark ? 'bg-gray-800' : 'bg-gray-900'} text-white py-8`}>
       <div className="max-w-7xl mx-auto px-4">
@@ -65,13 +67,28 @@ export const Footer = ({ setCurrentPage, currentPage }) => {
             <ul className="space-y-2">
               <li>
                 <a 
-                  href="https://anchor.fm/techiesconnect" 
+                  href={LISTENING_PLATFORMS.spotify} 
                   className="text-gray-400 hover:text-white"
                 >
                  Spotify
                 </a>
               </li>
-              <li><a href="https://www.anchor.fm" className="text-gray-400 hover:text-white">RSS Feed</a></li>
+              <li>
+                <a 
+                  href={LISTENING_PLATFORMS.youtube}
+                  className="text-gray-400 hover:text-white"
+                >
+                 Youtube
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={LISTENING_PLATFORMS.rss} 
+                  className="text-gray-400 hover:text-white"
+                >
+                  RSS Feed
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -79,9 +96,9 @@ export const Footer = ({ setCurrentPage, currentPage }) => {
           <div>
             <h3 className="text-xl font-bold mb-4">{t('footer.followUs')}</h3>
             <div className="flex space-x-4">
-              <a href="https://www.linkedin.com/feed/" className="text-gray-400 hover:text-white"><Linkedin size={24} /></a>
-              <a href="https://www.x.com" className="text-gray-400 hover:text-white"><XIcon /></a>
-              <a href="https://www.anchor.fm" className="text-gray-400 hover:text-white"><Rss size={24} /></a>
+              <a href={SOCIAL_LINKS.youtube} className="text-gray-400 hover:text-white"><Youtube size={24} /></a>
+              <a href={SOCIAL_LINKS.twitter} className="text-gray-400 hover:text-white"><XIcon size={24}/></a>
+              <a href={SOCIAL_LINKS.spotify} className="text-gray-400 hover:text-white"><SpotifyIcon size={24} /></a>
             </div>
           </div>
         </div>

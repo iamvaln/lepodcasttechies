@@ -6,6 +6,7 @@ import { useTranslation } from '../context/LanguageContext';
 import { publishedEpisodes, latestEpisodes } from '../data/episodes';
 import { EpisodePlaceholder } from '../components/Placeholders';
 import { LanguageBadge } from '../components/LanguageBadge';
+import { LISTENING_PLATFORMS } from '../constants/config';
 import _ from 'lodash';
 
 export const HomePage = ({ setCurrentPage,setCurrentEpisode }) => {
@@ -62,10 +63,15 @@ export const HomePage = ({ setCurrentPage,setCurrentEpisode }) => {
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               {t('home.hero.subtitle')}
             </p>
-            <div className="flex justify-center space-x-4">
-              <button className={`${styles.button} px-6 py-3 rounded-full`}>
+            <div className="flex justify-center mb-8">
+              <a 
+                href={LISTENING_PLATFORMS.spotify}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.button} px-6 py-3 rounded-full flex items-center`}
+              >
                 {t('home.hero.listenButton')}
-              </button>
+              </a>
             </div>
              {/* Barre de recherche intégrée au hero */}
              <div className="max-w-2xl mx-auto">
@@ -94,7 +100,7 @@ export const HomePage = ({ setCurrentPage,setCurrentEpisode }) => {
                         key={episode.id}
                         onClick={() => {
                           setShowResults(false);
-                          setCurrentPage('episodePlayer');  // ou 'blog' pour les articles
+                          setCurrentPage('episodes');  // ou 'blog' pour les articles
                           setCurrentEpisode(episode.id);    // ou setCurrentArticle pour les articles
                         }}
                         className="w-full px-4 py-3 text-left hover:bg-gray-50 focus:bg-gray-50"

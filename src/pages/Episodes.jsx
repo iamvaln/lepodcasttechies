@@ -8,11 +8,11 @@ import { LanguageBadge } from '../components/LanguageBadge';
 import { publishedEpisodes,sortEpisodesByDate, paginateEpisodes} from '../data/episodes';
 import { APP_CONFIG } from '../constants/config';
 
-export const EpisodesPage = ({ onSelectEpisode }) => {
+export const EpisodesPage = ({ setCurrentPage, setCurrentEpisode  }) => {
   const { styles } = useTheme();
   const { t, language } = useTranslation();
   const [isPlaying, setIsPlaying] = React.useState(null);
-  const [currentPage, setCurrentPage] = React.useState(1);
+  const [currentPage] = React.useState(1);
   const sortedEpisodes = sortEpisodesByDate(publishedEpisodes);
   const paginatedEpisodes = paginateEpisodes(sortedEpisodes, currentPage);
   const totalPages = Math.ceil(publishedEpisodes.length / APP_CONFIG.EPISODES_PER_PAGE);
@@ -23,6 +23,13 @@ export const EpisodesPage = ({ onSelectEpisode }) => {
       <div className="space-y-8">
         {paginatedEpisodes.map((episode) => (
           <div key={episode.id} className={styles.card}>
+            <div 
+             className="md:flex cursor-pointer" 
+             onClick={() => {
+               setCurrentEpisode(episode.id);
+               setCurrentPage('episodePlayer');
+             }}
+           >
             <div className="md:flex">
               <div className="md:w-1/3 relative">
                 <div className="w-full h-64">
@@ -48,13 +55,18 @@ export const EpisodesPage = ({ onSelectEpisode }) => {
                   {episode.translations[language].description}
                 </p>
                 <button
-                  onClick={() => onSelectEpisode(episode.id)}
-                  className={`${styles.actionButton} mt-4`}
-                >
+                 onClick={(e) => {
+                   e.stopPropagation(); // Empêche le déclenchement du onClick parent
+                   setCurrentEpisode(episode.id);
+                   setCurrentPage('episodePlayer');
+                 }}
+                 className={`${styles.actionButton} mt-4`}
+               >
                   {t('episodes.listen')}
                 </button>
               </div>
             </div>
+          </div>
           </div>
         ))}
       </div>

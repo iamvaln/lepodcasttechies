@@ -7,7 +7,8 @@ import { Logo } from './Logo';
 import { LanguageSelector } from './LanguageSelector';
 
 const NavLink = ({ page, currentPage, onClick, children }) => {
-  const isActive = currentPage === page;
+  const isActive = (page === 'episodes' && currentPage === 'episodePlayer') || currentPage === page;
+  
   return (
     <button 
       onClick={onClick}
@@ -88,7 +89,9 @@ export const Header = ({ currentPage, setCurrentPage }) => {
                 }}
                 className={`
                   block w-full text-left px-3 py-2 rounded
-                  ${currentPage === item.key ? 'bg-violet-700' : 'hover:bg-violet-700'}
+                  ${(currentPage === item.key || (item.key === 'episodes' && currentPage === 'episodePlayer')) 
+                    ? 'bg-violet-700' 
+                    : 'hover:bg-violet-700'}
                 `}
               >
                 {item.label}

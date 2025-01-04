@@ -105,6 +105,7 @@ export const episodes = [
     id: 2,
     language: 'fr',
     anchorId: "data-protection",
+    relatedArticle: 'data-protection',
     translations: {
       fr: {
         title: "La protection des données personnelles au Cameroun",
@@ -151,8 +152,7 @@ export const getPublishedEpisodes = (episodes) => {
 export const sortEpisodesByDate = (episodes) => {
   return [...episodes].sort((a, b) => new Date(b.date) - new Date(a.date));
 };
-
-// Fonction pour paginer les épisodes
+// Function to paginate episodes
 export const paginateEpisodes = (episodes, page = 1, perPage = APP_CONFIG.EPISODES_PER_PAGE) => {
   const published = getPublishedEpisodes(episodes);
   const sorted = sortEpisodesByDate(published);
@@ -160,7 +160,7 @@ export const paginateEpisodes = (episodes, page = 1, perPage = APP_CONFIG.EPISOD
   return sorted.slice(start, start + perPage);
  };
 
-// Fonction pour obtenir les derniers épisodes
+// Function to get the latest episodes
 export const getLatestEpisodes = (episodes, count = APP_CONFIG.LATEST_EPISODES_LIMIT) => {
   const published = getPublishedEpisodes(episodes);
   return sortEpisodesByDate(published).slice(0, count);
@@ -172,5 +172,5 @@ export const getFeaturedEpisodes = (episodes) => {
  };
 
 
- export const latestEpisodes = getLatestEpisodes(episodes);
+export const latestEpisodes = getLatestEpisodes(episodes);
 export const publishedEpisodes = getPublishedEpisodes(episodes);
