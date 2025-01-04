@@ -1,27 +1,17 @@
 {
   "files": {
-    "main.css": "/repository-name/static/css/main.41eec723.chunk.css",
-    "main.js": "/repository-name/static/js/main.126cfbed.chunk.js",
-    "main.js.map": "/repository-name/static/js/main.126cfbed.chunk.js.map",
-    "runtime-main.js": "/repository-name/static/js/runtime-main.0e98b579.js",
-    "runtime-main.js.map": "/repository-name/static/js/runtime-main.0e98b579.js.map",
-    "static/js/2.5d030c72.chunk.js": "/repository-name/static/js/2.5d030c72.chunk.js",
-    "static/js/2.5d030c72.chunk.js.map": "/repository-name/static/js/2.5d030c72.chunk.js.map",
-    "static/js/3.fe6a6dcc.chunk.js": "/repository-name/static/js/3.fe6a6dcc.chunk.js",
-    "static/js/3.fe6a6dcc.chunk.js.map": "/repository-name/static/js/3.fe6a6dcc.chunk.js.map",
-    "static/js/4.a1dc6718.chunk.js": "/repository-name/static/js/4.a1dc6718.chunk.js",
-    "static/js/4.a1dc6718.chunk.js.map": "/repository-name/static/js/4.a1dc6718.chunk.js.map",
-    "index.html": "/repository-name/index.html",
-    "precache-manifest.df7926dd521472e368d5bb5bc179c0a8.js": "/repository-name/precache-manifest.df7926dd521472e368d5bb5bc179c0a8.js",
-    "service-worker.js": "/repository-name/service-worker.js",
-    "static/css/main.41eec723.chunk.css.map": "/repository-name/static/css/main.41eec723.chunk.css.map",
-    "static/js/2.5d030c72.chunk.js.LICENSE.txt": "/repository-name/static/js/2.5d030c72.chunk.js.LICENSE.txt",
-    "static/js/3.fe6a6dcc.chunk.js.LICENSE.txt": "/repository-name/static/js/3.fe6a6dcc.chunk.js.LICENSE.txt"
+    "main.css": "/lepodcasttechies/static/css/main.79281e5a.css",
+    "main.js": "/lepodcasttechies/static/js/main.7a02467d.js",
+    "static/js/310.8f9b93b4.chunk.js": "/lepodcasttechies/static/js/310.8f9b93b4.chunk.js",
+    "static/js/95.e166bbc9.chunk.js": "/lepodcasttechies/static/js/95.e166bbc9.chunk.js",
+    "index.html": "/lepodcasttechies/index.html",
+    "main.79281e5a.css.map": "/lepodcasttechies/static/css/main.79281e5a.css.map",
+    "main.7a02467d.js.map": "/lepodcasttechies/static/js/main.7a02467d.js.map",
+    "310.8f9b93b4.chunk.js.map": "/lepodcasttechies/static/js/310.8f9b93b4.chunk.js.map",
+    "95.e166bbc9.chunk.js.map": "/lepodcasttechies/static/js/95.e166bbc9.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.0e98b579.js",
-    "static/js/3.fe6a6dcc.chunk.js",
-    "static/css/main.41eec723.chunk.css",
-    "static/js/main.126cfbed.chunk.js"
+    "static/css/main.79281e5a.css",
+    "static/js/main.7a02467d.js"
   ]
 }
