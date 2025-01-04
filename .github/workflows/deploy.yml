@@ -18,9 +18,14 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        env:
+          CI: false  # Unset the CI variable to avoid treating warnings as errors
 
       - name: Build
         run: npm run build
+        env:
+          CI: false  # Unset the CI variable to avoid treating warnings as errors
+
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
