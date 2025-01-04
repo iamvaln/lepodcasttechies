@@ -37,6 +37,7 @@ export const HomePage = ({ setCurrentPage,setCurrentEpisode }) => {
     [language]
   );
  
+
   React.useEffect(() => {
     handleSearch(searchTerm);
   }, [searchTerm, handleSearch]);
@@ -51,7 +52,7 @@ export const HomePage = ({ setCurrentPage,setCurrentEpisode }) => {
  
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  }, [setCurrentEpisode, setCurrentPage]);
 
   return (
     <>

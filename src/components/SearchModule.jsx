@@ -12,7 +12,6 @@ export const SearchModule = ({
   darkMode = false,  // pour adapter le style selon le contexte
   className = ''     // pour permettre une personnalisation supplémentaire
 }) => {
-  // const { styles } = useTheme();
   const { t, language } = useTranslation();
   const [searchTerm, setSearchTerm] = React.useState('');
   const [searchResults, setSearchResults] = React.useState([]);
