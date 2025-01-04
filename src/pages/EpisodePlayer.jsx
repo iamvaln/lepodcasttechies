@@ -11,7 +11,7 @@ export const EpisodePlayer = ({ episodeId, onBack,setCurrentArticle,setCurrentPa
  const { styles } = useTheme();
  const { t, language } = useTranslation();
  const [isPlaying, setIsPlaying] = React.useState(false);
- const [progress, setProgress] = React.useState(0);
+ const [progress] = React.useState(0);
 
  const episode = episodes.find(ep => ep.id === episodeId);
 

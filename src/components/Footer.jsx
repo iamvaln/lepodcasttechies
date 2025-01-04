@@ -1,6 +1,6 @@
 // src/components/Footer.jsx
 import React from 'react';
-import { Linkedin, Rss, Youtube } from 'lucide-react';
+import {Youtube } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { useTranslation } from '../context/LanguageContext';
 import { SpotifyIcon, XIcon } from './Icons';

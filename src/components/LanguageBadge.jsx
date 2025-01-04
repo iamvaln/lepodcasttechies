@@ -1,6 +1,5 @@
 // src/components/LanguageBadge.jsx
 import React from 'react';
-import { useTranslation } from '../context/LanguageContext';
 
 export const LanguageBadge = ({ language }) => {
   

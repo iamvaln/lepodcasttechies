@@ -1,6 +1,6 @@
 // src/pages/Episodes.jsx
 import React from 'react';
-import { Play, Pause, Calendar, Clock } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
 import { useTheme } from '../components/ThemeProvider';
 import { useTranslation } from '../context/LanguageContext';
 import { EpisodePlaceholder } from '../components/Placeholders';
@@ -11,7 +11,7 @@ import { APP_CONFIG } from '../constants/config';
 export const EpisodesPage = ({ setCurrentPage, setCurrentEpisode  }) => {
   const { styles } = useTheme();
   const { t, language } = useTranslation();
-  const [isPlaying, setIsPlaying] = React.useState(null);
+  // const [isPlaying, setIsPlaying] = React.useState(null);
   const [currentPage] = React.useState(1);
   const sortedEpisodes = sortEpisodesByDate(publishedEpisodes);
   const paginatedEpisodes = paginateEpisodes(sortedEpisodes, currentPage);
