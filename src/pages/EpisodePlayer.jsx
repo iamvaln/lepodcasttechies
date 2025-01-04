@@ -5,6 +5,7 @@ import { useTheme } from '../components/ThemeProvider';
 import { useTranslation } from '../context/LanguageContext';
 import { LanguageBadge } from '../components/LanguageBadge';
 import { Episode2Placeholder } from '../components/Placeholders';
+import { AnchorPlayer } from '../components/AnchorPlayer';
 
 export const EpisodePlayer = ({ episodeId, onBack }) => {
   const { styles } = useTheme();
@@ -70,38 +71,7 @@ export const EpisodePlayer = ({ episodeId, onBack }) => {
         {/* Lecteur audio */}
         <div className="border-t border-gray-200 p-6">
           <div className="max-w-2xl mx-auto">
-            {/* Barre de progression */}
-            <div className="h-1 w-full bg-gray-200 rounded-full mb-4">
-              <div 
-                className="h-full bg-violet-600 rounded-full"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-
-            {/* Contrôles */}
-            <div className="flex items-center justify-center space-x-6">
-              <button className="p-2 hover:text-violet-600">
-                <SkipBack size={24} />
-              </button>
-              <button 
-                onClick={() => setIsPlaying(!isPlaying)}
-                className="w-12 h-12 rounded-full bg-violet-600 text-white flex items-center justify-center hover:bg-violet-700"
-              >
-                {isPlaying ? <Pause size={24} /> : <Play size={24} />}
-              </button>
-              <button className="p-2 hover:text-violet-600">
-                <SkipForward size={24} />
-              </button>
-              <div className="flex items-center space-x-2">
-                <Volume2 size={20} />
-                <input 
-                  type="range"
-                  min="0"
-                  max="100"
-                  className="w-24"
-                />
-              </div>
-            </div>
+            <AnchorPlayer episodeId={episodeId} />
           </div>
         </div>
       </div>

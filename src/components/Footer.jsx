@@ -63,9 +63,14 @@ export const Footer = ({ setCurrentPage, currentPage }) => {
           <div>
             <h3 className="text-xl font-bold mb-4">{t('footer.listenOn')}</h3>
             <ul className="space-y-2">
-              <li><a href="https://www.spotify.com" className="text-gray-400 hover:text-white">Spotify</a></li>
-              <li><a href="https://www.https://www.spotify.com" className="text-gray-400 hover:text-white">Apple Podcasts</a></li>
-              <li><a href="https://www.spotify.com" className="text-gray-400 hover:text-white">Google Podcasts</a></li>
+              <li>
+                <a 
+                  href="https://anchor.fm/techiesconnect" 
+                  className="text-gray-400 hover:text-white"
+                >
+                 Spotify
+                </a>
+              </li>
               <li><a href="https://www.anchor.fm" className="text-gray-400 hover:text-white">RSS Feed</a></li>
             </ul>
           </div>

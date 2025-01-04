@@ -3,7 +3,7 @@ import React from 'react';
 import { Search,Play, Pause, Calendar, Clock } from 'lucide-react';
 import { useTheme } from '../components/ThemeProvider';
 import { useTranslation } from '../context/LanguageContext';
-import { episodes } from '../data/episodes';
+import { publishedEpisodes, latestEpisodes } from '../data/episodes';
 import { EpisodePlaceholder } from '../components/Placeholders';
 import { LanguageBadge } from '../components/LanguageBadge';
 import _ from 'lodash';
@@ -25,7 +25,7 @@ export const HomePage = ({ setCurrentPage,setCurrentEpisode }) => {
       }
  
       const searchIn = {
-        episodes: episodes.filter(episode =>
+        episodes: publishedEpisodes.filter(episode =>
           episode.translations[language].title.toLowerCase().includes(term.toLowerCase()) ||
           episode.translations[language].description.toLowerCase().includes(term.toLowerCase())
         )
@@ -118,10 +118,13 @@ export const HomePage = ({ setCurrentPage,setCurrentEpisode }) => {
       <div className="max-w-5xl mx-auto px-4 py-12">
         <h2 className="text-3xl font-bold mb-8">{t('home.episodes.title')}</h2>
         <div className="space-y-8">
-          {episodes.map((episode) => {
+          {latestEpisodes.map((episode) => {
             const episodeContent = episode.translations[language];
             return (
-              <div key={episode.id} className={styles.card}>
+              <div key={episode.id} className={styles.card} onClick={() => {
+                setCurrentPage('episodePlayer');
+                setCurrentEpisode(episode.id);
+              }}>
                 <div className="md:flex">
                   <div className="md:w-1/3">
                     <div className="relative">
