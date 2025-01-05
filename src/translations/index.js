@@ -149,6 +149,15 @@ export const translations = {
         resultsArticles: "Articles",
         noResults: "Aucun résultat trouvé"
       },
+      newsletter: {
+        title: "Restez informé",
+        subtitle: "Inscrivez-vous à notre newsletter pour ne manquer aucun épisode",
+        placeholder: "Votre email",
+        button: "S'inscrire",
+        success: "Merci pour votre inscription ! Vous recevrez bientôt nos nouvelles.",
+        invalidEmail: "Veuillez entrer une adresse email valide",
+        errorMessage: "Une erreur est survenue. Veuillez réessayer plus tard."
+      }
     },
     en: {
       nav: {
@@ -299,5 +308,14 @@ export const translations = {
           resultsArticles: "Articles",
           noResults: "No results found"
       },
+      newsletter: {
+        title: "Stay Updated",
+        subtitle: "Subscribe to our newsletter to never miss an episode",
+        placeholder: "Your email",
+        button: "Subscribe",
+        success: "Thanks for subscribing! You'll hear from us soon.",
+        invalidEmail: "Please enter a valid email address",
+        errorMessage: "An error occurred. Please try again later."
+      }
     }
   };
