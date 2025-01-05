@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/lepodcasttechies/static/css/main.79281e5a.css",
-    "main.js": "/lepodcasttechies/static/js/main.7a02467d.js",
-    "static/js/310.8f9b93b4.chunk.js": "/lepodcasttechies/static/js/310.8f9b93b4.chunk.js",
-    "static/js/95.e166bbc9.chunk.js": "/lepodcasttechies/static/js/95.e166bbc9.chunk.js",
+    "main.css": "/lepodcasttechies/static/css/main.be731a4b.css",
+    "main.js": "/lepodcasttechies/static/js/main.51564d5e.js",
+    "static/js/310.a2677e9c.chunk.js": "/lepodcasttechies/static/js/310.a2677e9c.chunk.js",
+    "static/js/810.d769c723.chunk.js": "/lepodcasttechies/static/js/810.d769c723.chunk.js",
     "index.html": "/lepodcasttechies/index.html",
-    "main.79281e5a.css.map": "/lepodcasttechies/static/css/main.79281e5a.css.map",
-    "main.7a02467d.js.map": "/lepodcasttechies/static/js/main.7a02467d.js.map",
-    "310.8f9b93b4.chunk.js.map": "/lepodcasttechies/static/js/310.8f9b93b4.chunk.js.map",
-    "95.e166bbc9.chunk.js.map": "/lepodcasttechies/static/js/95.e166bbc9.chunk.js.map"
+    "main.be731a4b.css.map": "/lepodcasttechies/static/css/main.be731a4b.css.map",
+    "main.51564d5e.js.map": "/lepodcasttechies/static/js/main.51564d5e.js.map",
+    "310.a2677e9c.chunk.js.map": "/lepodcasttechies/static/js/310.a2677e9c.chunk.js.map",
+    "810.d769c723.chunk.js.map": "/lepodcasttechies/static/js/810.d769c723.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.79281e5a.css",
-    "static/js/main.7a02467d.js"
+    "static/css/main.be731a4b.css",
+    "static/js/main.51564d5e.js"
   ]
 }
