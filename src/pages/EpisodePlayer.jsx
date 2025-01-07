@@ -5,6 +5,7 @@ import { useTheme } from '../components/ThemeProvider';
 import { useTranslation } from '../context/LanguageContext';
 import { LanguageBadge } from '../components/LanguageBadge';
 import { Episode2Placeholder } from '../components/Placeholders';
+import { ShareEpisode } from '../components/ShareEpisode';
 
 export const EpisodePlayer = ({ episodeId, onBack }) => {
   const { styles } = useTheme();
@@ -64,6 +65,11 @@ export const EpisodePlayer = ({ episodeId, onBack }) => {
             <p className={styles.text}>
               {episode.translations[language].description}
             </p>
+             
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <h3 className="text-xl font-bold mb-4">{t('episodes.share')}</h3>
+              <ShareEpisode episode={episode} language={language} />
+            </div>
           </div>
         </div>
 

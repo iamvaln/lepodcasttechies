@@ -15,7 +15,8 @@ export const episodes = [
       },
       date: "2024-12-31",
       placeholder: "Welcome to Techies Connect' Podcast",
-      duration: "5:00"
+      duration: "5:00",
+      spotifyUrl: 'https://open.spotify.com/episode/...'
     },
     {
       id: 2,
@@ -32,6 +33,7 @@ export const episodes = [
       },
       date: "2024-12-31",
       placeholder: "Data Protection in Cameroon",
-      duration: "20:00"
+      duration: "20:00",
+      spotifyUrl: 'https://open.spotify.com/episode/...'
     }
   ];

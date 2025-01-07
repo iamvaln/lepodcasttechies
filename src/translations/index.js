@@ -126,6 +126,13 @@ export const translations = {
           google: "Écouter sur Google Podcasts",
           rss: "S'abonner au flux RSS"
         }
+      },
+      share: {
+        title: "Partager cet épisode",
+        linkedin: "Partager sur LinkedIn",
+        twitter: "Partager sur X",
+        facebook: "Partager sur Facebook",
+        whatsapp: "Partager sur WhatsApp"
       }
     },
     en: {
@@ -254,6 +261,13 @@ export const translations = {
           google: "Listen on Google Podcasts",
           rss: "Subscribe to RSS feed"
         }
+      },
+      share: {
+        title: "Share this episode",
+        linkedin: "Share on LinkedIn",
+        twitter: "Share on X",
+        facebook: "Share on Facebook",
+        whatsapp: "Share on WhatsApp"
       }
     }
   };
